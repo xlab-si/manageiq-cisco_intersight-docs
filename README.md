@@ -4,8 +4,14 @@ Documentation for the `manageiq-providers-cisco_intersight` provider.
 
 User stories covered with the implementation of the provider:
 
- * As a user I need to be able to add a new Intersight provider to ManageIQ
+## As a user I need to be able to add a new Intersight provider to ManageIQ
  
+New provider can simply be added through "Add new physical provider" dialog box.
+
+![Diagnostics Server](figures/add_physical_provider.png)
+
+After providing `API key ID` and `API key` (both can be generated and found on the Intersight User Account Settings) the user needs to validate the credentials by pressing `Validate`.
+
  * As a user I need to be able to update the credentials for an existing Intersight provider.
  
  * As a user I need to be able to validate that credentials for Intersight are valid before adding or updating the provider.
