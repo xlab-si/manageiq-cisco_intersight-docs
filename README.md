@@ -10,6 +10,8 @@ The provider's implementation resides here: https://github.com/ManageIQ/manageiq
 
 Development set-up adheres stadard ManageIQ guildelines provided here: https://www.manageiq.org/docs/guides/developer_setup/plugins . 
 
+The provider uses Intersight SDK library `intersight_client` written in Ruby. The official Github repository resides here: https://github.com/xlab-si/intersight-sdk-ruby and the release of the library is located here: https://rubygems.org/gems/intersight_client .
+
 ## Supported User stories
 
 This section lists user stories supported in the implementation of the provider.
@@ -28,11 +30,11 @@ After providing `API key ID` and `API key` (both can be generated and found on t
  
  ### As a user I need to be able to validate that credentials for Intersight are valid before adding or updating the provider.
 
-This process is covered within the section [on adding the provider](#as-a-user-i-need-to-be-able-to-add-a-new-intersight-provider-to-manageiq)
+This process is covered within the section [on adding the provider](#as-a-user-i-need-to-be-able-to-add-a-new-intersight-provider-to-manageiq).
 
  ### As a user I need to be able to delete an existing Intersight provider from ManageIQ.
 
-
+This user story is similar to [updating the credentials](#as-a-user-i-need-to-be-able-to-update-the-credentials-for-an-existing-intersight-provider).
 
  ### As a user I need to be able to add Intersight providers for multiple Intersight labs.
 
