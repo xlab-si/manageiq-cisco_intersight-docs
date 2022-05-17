@@ -1,5 +1,8 @@
 == {intersight-provider-title} Release Notes
 
+The {product-title} uses {intersight-sdk-library} written in Ruby. The official Github repository of the library
+resides here: https://github.com/xlab-si/intersight-sdk-ruby .
+
 The {product-title} supports the following {intersight-provider} functionality:
 
 * Inventory (Physical servers, Switches, Chassis)

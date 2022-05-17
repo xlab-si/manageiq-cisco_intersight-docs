@@ -6,29 +6,11 @@ Documentation for the `manageiq-providers-cisco_intersight` provider.
 
 ### Development details
 
-The provider's implementation resides here: https://github.com/ManageIQ/manageiq-providers-cisco_intersight .
-
-Development set-up adheres stadard ManageIQ guildelines provided here: https://www.manageiq.org/docs/guides/developer_setup/plugins . 
-
 The provider uses Intersight SDK library `intersight_client` written in Ruby. The official Github repository resides here: https://github.com/xlab-si/intersight-sdk-ruby and the release of the library is located here: https://rubygems.org/gems/intersight_client .
 
-## Supported User stories
 
-This section lists user stories supported in the implementation of the provider.
-
-### As a user I need to be able to add a new Intersight provider to ManageIQ
  
-New provider can simply be added through "Add new physical provider" dialog box.
-
-![Diagnostics Server](../figures/add_physical_provider.png)
-
-After providing `API key ID` and `API key` (both can be generated and found on the Intersight User Account Settings) the user needs to validate the credentials by pressing `Validate`.
-
- ### As a user I need to be able to update the credentials for an existing Intersight provider.
-
- This process follows similar flow as the one above (adding a provider). After creating a provider, you can navigate to the list of all available physical providers and `Edit Selected Physical Infrastructure Providers` where the user can update `Name`, `Zone`, and `Authentication credentials` details.
- 
- ### As a user I need to be able to validate that credentials for Intersight are valid before adding or updating the provider.
+### As a user I need to be able to validate that credentials for Intersight are valid before adding or updating the provider.
 
 This process is covered within the section [on adding the provider](#as-a-user-i-need-to-be-able-to-add-a-new-intersight-provider-to-manageiq).
 
