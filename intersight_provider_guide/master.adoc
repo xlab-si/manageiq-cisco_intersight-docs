@@ -49,8 +49,8 @@ include::topics/intersight-release-notes.adoc[]
 //[[PrerequisitesIntersight]]
 //include::topics/prerequisites.adoc[]
 
-//[[AddingAnIntersightProvider]]
-//include::topics/adding-intersight-provider.adoc[]
+[[AddingAnIntersightProvider]]
+include::topics/adding-intersight-provider.adoc[]
 
-//[[UsingIntersightPhysicalInfra]]
-//include::topics/using-intersight-physical-infra.adoc[]
+[[UsingIntersightPhysicalInfra]]
+include::topics/using-intersight-physical-infra.adoc[]

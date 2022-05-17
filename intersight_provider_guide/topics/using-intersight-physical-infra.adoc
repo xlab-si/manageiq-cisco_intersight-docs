@@ -1,0 +1,20 @@
+== Using {intersight-provider-full-title}
+
+=== Updating {intersight-provider-title} credentials
+
+This process follows similar flow as adding a provider. After creating a provider, you can navigate to the list of all
+available physical providers and *Edit Selected Physical Infrastructure Providers* where the user can update
+*Name*, *Zone*, and *Authentication credentials* details.
+
+=== Examining {intersight-provider-title} Inventory
+
+The physical infrastructure provider's dashboard provides an overview of the
+inventory at a glance. To view it, first navigate to *Compute ->
+Physical Infrastructure -> Providers* page from the main navigation on the
+left, then click your {intersight-provider}.
+
+NOTE: The {intersight-provider} does not support targeted refreshing of the
+inventory. To make sure that the latest information is visible, please perform
+*Configuration -> Refresh Relationships and Power States*. The statuses should
+be up-to-date after a few seconds.
+
