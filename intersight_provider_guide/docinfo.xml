@@ -1,0 +1,44 @@
+<productname>Cisco Intersight physical infrastructure provider for ManageIQ</productname>
+<productnumber>1.0</productnumber>
+<title>Cisco Intersight physical infrastructure provider</title>
+<subtitle>User Guide</subtitle>
+<abstract>
+<para>This documentation includes the instructions on using Cisco Intersight physical infrastructure provider in Red Hat ManageIQ.</para>
+<para>Functionality covered by the plug-in for Cisco Intersight is described in <link xlink:href="./topics/intersight-release-notes.adoc">Relese Notes</link>.</para>
+</abstract>
+<authorgroup id="Author_Group">
+<author>
+  <firstname>Aleš</firstname>
+  <surname>Černivec</surname>
+  <email>ales.cernivec@xlab.si</email>
+  <affiliation>
+    <jobtitle>Solution Architect</jobtitle>
+    <orgname>XLAB d.o.o.</orgname>
+  </affiliation>
+</author>
+<author>
+  <firstname>Tim</firstname>
+  <surname>rekelj</surname>
+  <email>tim.rekelj@xlab.si</email>
+  <affiliation>
+    <orgname>XLAB d.o.o.</orgname>
+  </affiliation>
+</author>
+<author>
+  <firstname>Tjaž</firstname>
+  <surname>Eržen</surname>
+  <email>tjaz.erzen@xlab.si</email>
+  <affiliation>
+    <orgname>XLAB d.o.o.</orgname>
+  </affiliation>
+</author>
+<author>
+  <firstname>Gregor</firstname>
+  <surname>Berginc</surname>
+  <email>gregor.berginc@xlab.si</email>
+  <affiliation>
+    <jobtitle>Chief Executive Officer</jobtitle>
+    <orgname>XLAB d.o.o.</orgname>
+  </affiliation>
+</author>
+</authorgroup>
