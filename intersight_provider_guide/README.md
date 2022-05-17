@@ -63,7 +63,7 @@ This user story is similar to [updating the credentials](#as-a-user-i-need-to-be
  
 ### As an admin I need to be able to review detailed EMS logs
 
-[comment]: <We wanred to include more details [here](../admin_review_ems_logs/README.md). Not sure whether this is even needed.> 
+[comment]: <We wanred to include more details [here](admin-review-ems-README.md). Not sure whether this is even needed.> 
 
 `Control -> Log` opens Last 1000 lines from server EVM in zone `default`. User with role `EvmGroup-super_administrator` can also download entire Policy Log File.
 
