@@ -1,98 +1,100 @@
-# Documentation on the manageiq-providers-cisco_intersight
+# Cisco Intersight Physical Infrastructure provider documentation (maintainer notes)
 
-Documentation for the `manageiq-providers-cisco_intersight` provider.
+This repository contains documentation related to Cisco Intersight Physical Infrastructure  provider.
 
-## Techincal details of the ManageIQ provider
+**NOTE**: *README.md is intended for documentation maintainers only and should
+not be included in the final PDF nor shipped to customers. All .adoc files,
+however, are actually a part of the documentation.*
 
-### Development details
+## Compile into PDF
+First navigate to [master.adoc](./intersight_provider_guide/master.adoc) and uncomment
+appropriate variable set (either ManageIQ or CloudForms).
 
-The provider's implementation resides here: https://github.com/ManageIQ/manageiq-providers-cisco_intersight .
+Then install [`asciidoctor-pdf`](https://asciidoctor.org/docs/asciidoctor-pdf)
+gem and use it like this to compile `.adoc` documentation into a PDF file:
 
-Development set-up adheres stadard ManageIQ guildelines provided here: https://www.manageiq.org/docs/guides/developer_setup/plugins . 
+```bash
+bundle exec asciidoctor-pdf intersight_provider_guide/master.adoc -o ./PREVIEW.pdf
+```
 
-The provider uses Intersight SDK library `intersight_client` written in Ruby. The official Github repository resides here: https://github.com/xlab-si/intersight-sdk-ruby and the release of the library is located here: https://rubygems.org/gems/intersight_client .
+This command will create file `./PREVIEW.pdf` that can be used as documentation
+preview.
 
-## Supported User stories
+## Documentation guides
+When adding new sections to the documentation, we need to follow some guides in
+order to be as compatible with other documentation as possible.
 
-This section lists user stories supported in the implementation of the provider.
+### Menu navigation
+Menu navigation must be bolded and use `ITEM -> ITEM` syntax.
 
-### As a user I need to be able to add a new Intersight provider to ManageIQ
- 
-New provider can simply be added through "Add new physical provider" dialog box.
+Correct: **User -> Settings -> Profile**
 
-![Diagnostics Server](figures/add_physical_provider.png)
+Wrong:
 
-After providing `API key ID` and `API key` (both can be generated and found on the Intersight User Account Settings) the user needs to validate the credentials by pressing `Validate`.
+- *User -> Settings -> Profile* (because it's italics)
+- **User>Settings>Profile** (wrong separator)
+- **User->Settings->Profile** (missing spaces)
 
- ### As a user I need to be able to update the credentials for an existing Intersight provider.
+### Referencing form fields
+Any references must be bolded. Please do not use italics, nor quotes.
 
- This process follows similar flow as the one above (adding a provider). After creating a provider, you can navigate to the list of all available physical providers and `Edit Selected Physical Infrastructure Providers` where the user can update `Name`, `Zone`, and `Authentication credentials` details.
- 
- ### As a user I need to be able to validate that credentials for Intersight are valid before adding or updating the provider.
+Correct: Select option **VMware WebMKS** in **Remote Console** section.
 
-This process is covered within the section [on adding the provider](#as-a-user-i-need-to-be-able-to-add-a-new-intersight-provider-to-manageiq).
+Wrong:
 
- ### As a user I need to be able to delete an existing Intersight provider from ManageIQ.
+- Select option "VMware WebMKS" in **Remote Console** section. (because of "")
+- Select option *VMware WebMKS* in **Remote Console** section. (because it's italics)
 
-This user story is similar to [updating the credentials](#as-a-user-i-need-to-be-able-to-update-the-credentials-for-an-existing-intersight-provider).
+### Capitalize titles and lists
+Titles must have all nouns capitalized. Furthermore, list items must have a form
+of sentence, not just plain nouns.
 
- ### As a user I need to be able to add Intersight providers for multiple Intersight labs.
+Correct:
+- Catalog, service dialog and catalog item preparation.
+- Catalog item ordering with customization.
+- Order approval, which results in actual provisioning to happen.
 
- ### As a user I need to be able to review all the available details about the servers, racks, …
+Wrong (because items are not nice sentences):
+- catalog, service dialog and catalog item preparation
+- catalog item ordering with customization
+- order approval, which results in actual provisioning to happen
 
- ### As a user I need to be able to review networking information.
+### Use variable for product names `{vcd}`, `{product-title}` etc.
+We introduced it as an **asciidoc variable** defined in
+[master.adoc](intersight_provider_guide/master.adoc) along with some other handy variables
+that are available in all subsequent sections. Do use them!
 
- ### As a user I need to be able to start and stop (power on and power off) servers)
+Also, please pay attention to difference between:
 
- ### As a user I need to be able to check the (health) status of the server running in the data centre.
+- `:product-title:           Red Hat ManageIQ` (a product)
+- `:product-appliance:       ManageIQ appliance` (a concrete virtual machine instance with MIQ, addressible by IP)
+- `:intersight:                 Intersight` 
+- `:intersight-provider:        {intersight} provider` (refers to Cisco Intersight provider integration into MIQ - with inventoring, eventing and all)
 
- ### As a user I need to be ablet to verify the status of the BeraMetal agent. 
+Do not mix them because it makes documentation very difficult to follow then.
 
- ### (Not supported) As a user I need to be able to view server logs in ManageIQ
+Correct: "{intersight-provider} supports listing available physical servers, racks, switches and chassis." 
+(value will be inserted upon PDF creation)
 
-### As a user I need to be able to specify appropriate RBAC rules for the Client to access the environment.
+Wrong: "Intersight provider supports listing available physical servers, racks, switches and chassis."
+(because it hardcodes the "Intersight provider" string)
 
+### Reference to other sections
+Please do not use links when referencing to other sections of our documentation because links don't work in PDF. Use anchors instead.
 
+Correct: "More details on this matter can be found in \<\<AddingAnIntersightProvider\>\> section."
+(link will be inserted upon PDF creation)
 
-### As a user I should be able to view a list of server profiles  (SPs)available in the system indicating which all are associated with servers and which are not so that I get a 
- full view of the inventory
- 
-### As a user I need to be able to boot a specific bootable image managed by ManageIQ
- 
-### As a user I need to be able to boot a specific bootable image for the server from the portal
- 
-### As an admin I need to be able to review detailed EMS logs
+Wrong: "More details on this matter can be found in link:vcd-vapp-provision.adoc[vApp Provisioning in vCloudDirector through Red Hat ManageIQ] section."
+(because it uses direct link that won't work in PDF. Moreover, it hardcodes the link title. Using anchor uses
+the document title.)
 
-[comment]: <We wanred to include more details [here](admin_review_ems_logs/README.md). Not sure whether this is even needed.> 
+### Don't title images
+Images don't have titles in CFME docs therefore we shouldn't be creating them either IMAO. Not sure on this
+one. You can still add `alt` attribute.
 
-`Control -> Log` opens Last 1000 lines from server EVM in zone `default`. User with role `EvmGroup-super_administrator` can also download entire Policy Log File.
+Correct: image::../../images/vcd-vapp04-itemtype.png[alt="Select Orchestration stack"]
+(`alt` attribute won't be rendered)
 
-Moreover with the same user role and by navigating to `Settings -> Application Settings -> Digagnostics`, Diagnostic server EVM allows review of Workers, Collect Logs, ManageIQ Logs, Audit Log and Development Log.
-
-![Diagnostics Server](figures/admin_review_ems_logs_1.png)
-
-### (Not supported) As a user I need to be able to open a remote console to the server through MIQ portal leveraging tunneled KVM of intersight
- 
-### As a user I need to be able to get alerts and notifications from the Intersight system
- 
-### Service Now Integration
- 
-### Data Backup and Restore
- 
- ## As a user I should be able to view a list of server profiles (SPs) available in the system indicating which all are associated with servers and which are not so that I get a full view of the inventory
- 
-### As a user I should be able to associate or assign free Server Profile to a blade or server that does not have any SP’s currently assigned so that I can deploy workloads on them
- 
-### As a user I should be able to unassign a server profile associated with a server so that the server is not used for any workloads
- 
-### As a user I should be able to decommission a server so that the server usage is not charged to us
- 
-User with a specific role can decomission a server with an action from the `Lifecycle` menu. Selected servers can be decomissioned.
-
-![Diagnostics Server](figures/comission_decomission_server.png)
-
-### As a user I should be able to commission a server that is in decommissioned status so that I can associate SPs for usage
- 
-User with a specific role can comission a server with an action from the `Lifecycle` menu. Selected servers can be comissioned. It is important to note that as soon the server is decomissioned it takes some time for Intersight to aggregates all the data.
-
-### As a user I should be able to view the Chassis inventory to view a list of servers that are currently available in the chassis with their status
+Wrong: image::../../images/vcd-vapp04-itemtype.png[title="Select Orchestration stack"]
+(because image has title rendered)

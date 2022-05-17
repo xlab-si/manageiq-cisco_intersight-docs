@@ -1,0 +1,53 @@
+== {intersight-provider-title} Release Notes
+
+The {product-title} supports the following {intersight-provider} functionality:
+
+* Inventory (Physical servers, Switches, Chassis)
+* Power Operations
+* Events
+* Alarms
+* Physical Server Configuration and Provisioning using Server Profiles
+* Decommissioning and Recommissioning servers
+
+=== Inventory
+{intersight-provider} collects the inventory on all of the discoverable systems,
+populating the {product-title_short}'s database. When a new provider is added,
+the inventory operation is automatic. The subsequent inventory updates occur
+either regularly or manually.
+
+Depending on the capabilities of the systems under inventory collection process, the {intersight}
+may distinguish between entities such as chassis, physical servers and switches.
+
+These categories are mapped into {product-title} categories
+as follows:
+
+[options="header",alt="Physical infrastructure provider entity mapping"]
+|===============================================================================
+| {product-title_short} Convention. | {intersight} Convention.
+| Physical Chassis                  | Chassis
+| Physical Server                   | Blade, Server
+| Physical Switch                   | Fabric Interconnect
+|===============================================================================
+
+=== Power Operations
+Power operations change the status of the power supply of the system and can
+also trigger a reboot of the target physical system. It is always possible
+to request any power operation regardless of the system's current power
+state. However, depending on the vendor's implementation, some operations
+may not have any effect if the system is in a wrong state at the time when
+it receives the request.
+
+[options="header",alt="Power operation to power state mapping"]
+|===============================================================================
+| Power operation.                   | Expected power state after action.
+| Power On                           | Powering On, On
+| Power Off                          | Powering Off, Off
+| Power Off Immediately              | Powering Off, Off
+| Restart                            | Powering Off, Off, Powering On, On
+| Restart Immediately                | Powering Off, Off, Powering On, On
+|===============================================================================
+
+=== Events
+{product-title} supports {intersight} events and alarms. On the {intersight} these are known as Requests and Alarms.
+Requests are triggered by end-users and the {intersight} system itself, and Alarms triggered by {intersight} components
+(e.g. "ethernet port down" warnings).

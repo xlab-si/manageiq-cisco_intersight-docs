@@ -1,0 +1,8 @@
+== Overview
+
+The https://intersight.com/apidocs/introduction/overview[Intersight API] is a programmatic interface that uses the REST
+architecture to provide access to the Intersight Management Information Model.
+
+This documentation provides configuration steps required by
+{intersight-provider-full}. Functionality covered is described in
+<<ReleaseNotesIntersight>> section.

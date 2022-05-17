@@ -1,0 +1,56 @@
+:imagesdir:    ../images
+:vernum:       0.1
+:toc:          left
+:toclevels:    3
+:compat-mode:
+:experimental:
+:login:
+:numbered:
+
+//
+// Uncomment following lines when compiling locally. In production, those values are filled from
+// caller, see https://github.com/ManageIQ/manageiq_docs/tree/master/common/attributes.
+//
+
+//:product-title: ManageIQ
+//:product-title_short: ManageIQ
+//:product-title_short_l: mangeiq
+//:product-title_abbr: miq
+//:product-title_abbr_uc: MIQ
+
+//:product-title: Red Hat CloudForms
+//:product-title_short: CloudForms
+//:product-title_short_l: cloudforms
+//:product-title_abbr: cfme
+//:product-title_abbr_uc: CFME
+
+//
+// Handy shortcuts
+//
+:product-gui:                 {product-title_short} graphical interface
+:product-appliance:           {product-title_short} appliance
+:product-appliance_title:     {product-title_short} Appliance
+:product-console:             {product-appliance} console
+:intersight:                  Cisco Intersight
+:intersight-server:           {intersight} server
+:intersight-provider:         {intersight} physical infrastructure provider
+:intersight-provider-title:   {intersight} Physical Infrastructure Provider
+:intersight-provider-full:    {intersight-provider} for {product-title}
+:intersight-provider-full-title: {intersight-provider-title} for {product-title}
+
+= {intersight-provider-full} User Guide
+
+[[OverviewIntersight]]
+include::topics/overview.adoc[]
+
+[[ReleaseNotesIntersight]]
+include::topics/intersight-release-notes.adoc[]
+
+//[[PrerequisitesIntersight]]
+//include::topics/prerequisites.adoc[]
+
+//[[AddingAnIntersightProvider]]
+//include::topics/adding-intersight-provider.adoc[]
+
+//[[UsingIntersightPhysicalInfra]]
+//include::topics/using-intersight-physical-infra.adoc[]
