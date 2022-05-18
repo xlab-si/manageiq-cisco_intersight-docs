@@ -2,24 +2,7 @@
 
 Documentation for the `manageiq-providers-cisco_intersight` provider.
 
-## Techincal details of the ManageIQ provider
-
-### Development details
-
-The provider uses Intersight SDK library `intersight_client` written in Ruby. The official Github repository resides here: https://github.com/xlab-si/intersight-sdk-ruby and the release of the library is located here: https://rubygems.org/gems/intersight_client .
-
-
  
-### As a user I need to be able to validate that credentials for Intersight are valid before adding or updating the provider.
-
-This process is covered within the section [on adding the provider](#as-a-user-i-need-to-be-able-to-add-a-new-intersight-provider-to-manageiq).
-
- ### As a user I need to be able to delete an existing Intersight provider from ManageIQ.
-
-This user story is similar to [updating the credentials](#as-a-user-i-need-to-be-able-to-update-the-credentials-for-an-existing-intersight-provider).
-
- ### As a user I need to be able to add Intersight providers for multiple Intersight labs.
-
  ### As a user I need to be able to review all the available details about the servers, racks, …
 
  ### As a user I need to be able to review networking information.
