@@ -1,61 +1,6 @@
 == Using {intersight-provider-full-title}
 
-=== Updating {intersight-provider-title} credentials
-
-This process follows similar flow as adding a provider. After creating a provider, you can navigate to the list of all
-available physical providers and *Edit Selected Physical Infrastructure Providers* where the user can update
-*Name*, *Zone*, and *Authentication credentials* details.
-
-=== Examining {intersight-provider-title} Inventory
-
-The physical infrastructure provider's dashboard provides an overview of the
-inventory at a glance. To view it, first navigate to *Compute ->
-Physical Infrastructure -> Providers* page from the main navigation on the
-left, then click your {intersight-provider}.
-
-image::docs_intersight_using01_dashboard.png[alt="{intersight-provider} dashboard",600,align="center"]
-
-NOTE: The {intersight-provider} does not support targeted refreshing of the
-inventory. To make sure that the latest information is visible, please perform
-*Configuration -> Refresh Relationships and Power States*. The statuses should
-be up-to-date after a few seconds.
-
-To view a list of the resources discovered through the inventory, click on
-the respective row of the *Relationships* table. For example, clicking on
-the *Physical Servers* row will take you to the list of physical servers:
-
-image::docs_intersight_using02_dashboard.png[alt="{intersight-provider} dashboard",600,align="center"]
-
-=== Managing the Physical System's Power Status
-
-Physical servers may be remotely powered off, powered on or restarted through
-{product-gui} using {intersight-provider}.
-
-To power off a particular physical server, we first navigate to *Compute ->
-Physical Infrastructure -> Servers* from the navigation on the left. On the
-server list, we click on the server's name. This takes us to the server's
-summary page, which provides the *Power* menu and displays the server's
-current power state:
-
-image::docs_intersight_using03_server_power_off.png[alt="Power menu and current state of the power to the server",600,align="center"]
-
-We can see that the server is currently powered on. To have it powered off, we
-click on *Power -> Power Off*. We get a prompt to confirm the
-selected action. After we click *Ok*, we will see the status showing the success
-of sending the request:
-
-image::docs_intersight_using04_turn_off_confirmation.png[alt="Confirmation of successfully requesting to turn off the server",600,align="center"]
-
-The server should be powered off within a few seconds. To see the updated
-status in the {product-gui}, use the *Configuration -> Refresh Relationships
-and Power States*, wait a few seconds, then refresh the page in the browser.
-
-Please refer to the <<ReleaseNotesIntersight>> section for further information
-about the power management actions and statuses.
-
-== Using {intersight-provider-full-title}
-
-=== Updating {intersight-provider-title} credentials
+=== Updating {intersight-provider-title} credentials￼
 
 This process follows similar flow as adding a provider. After creating a provider, you can navigate to the list of all
 available physical providers and *Edit Selected Physical Infrastructure Providers* where the user can update
