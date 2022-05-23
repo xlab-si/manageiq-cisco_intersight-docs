@@ -55,3 +55,6 @@ include::topics/adding-intersight-provider.adoc[]
 
 [[UsingIntersightPhysicalInfra]]
 include::topics/using-intersight-physical-infra.adoc[]
+
+[[NotesOnManagementActions]]
+include::topics/management-notes.adoc[]

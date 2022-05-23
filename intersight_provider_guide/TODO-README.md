@@ -7,24 +7,20 @@ Documentation for the `manageiq-providers-cisco_intersight` provider.
 
  ### As a user I need to be able to review networking information.
 
- ### As a user I need to be able to start and stop (power on and power off) servers)
-
  ### As a user I need to be able to check the (health) status of the server running in the data centre.
 
- ### As a user I need to be ablet to verify the status of the BeraMetal agent. 
+### (Not supported) As a user I need to be ablet to verify the status of the BeraMetal agent. 
 
- ### (Not supported) As a user I need to be able to view server logs in ManageIQ
+### (Not supported) As a user I need to be able to view server logs in ManageIQ
 
 ### As a user I need to be able to specify appropriate RBAC rules for the Client to access the environment.
-
-
 
 ### As a user I should be able to view a list of server profiles  (SPs)available in the system indicating which all are associated with servers and which are not so that I get a 
  full view of the inventory
  
-### As a user I need to be able to boot a specific bootable image managed by ManageIQ
+### (Not supported) As a user I need to be able to boot a specific bootable image managed by ManageIQ
  
-### As a user I need to be able to boot a specific bootable image for the server from the portal
+### (Not supported) As a user I need to be able to boot a specific bootable image for the server from the portal
  
 ### As an admin I need to be able to review detailed EMS logs
 
