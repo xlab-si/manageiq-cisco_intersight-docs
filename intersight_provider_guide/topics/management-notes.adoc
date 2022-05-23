@@ -2,79 +2,96 @@
 
 === Reviewing {intersight-provider-title} EVM logs
 
-Precondition for being able to review EVM logs, user needs to have appropriate permissions (.
+Precondition for being able to review EVM logs, user needs to have appropriate permissions.
 
-Control -> Log` opens Last 1000 lines from server EVM in zone `default`. User with role `EvmGroup-super_administrator` can also download entire Policy Log File.
+*Control -> Log* opens Last 1000 lines from server EVM in zone `default`. User with role `EvmGroup-super_administrator`
+can also download entire Policy Log File.
 
-Moreover with the same user role and by navigating to `Settings -> Application Settings -> Digagnostics`, Diagnostic server EVM allows review of Workers, Collect Logs, ManageIQ Logs, Audit Log and Development Log.
+Moreover, with the same user role and by navigating to *Settings -> Application Settings -> Digagnostics*, Diagnostic
+server EVM allows review of Workers, Collect Logs, ManageIQ Logs, Audit Log and Development Log.
 
-![Diagnostics Server](../figures/admin_review_ems_logs_1.png)
+image::docs_intersight_admin_review_ems_logs_1.png[alt="{intersight-provider} EVM logs overview",600,align="center"]
 
-=== Dump and restore Postgresql database
+=== Backup and restore of the {postgres} database
 
-ManageIQ uses PostgreSQL Database. So while dealing with ManageIQ
-database we’ll need to follow PostgreSQL commands and procedure to take
-a database dump as a backup and to restore it in another instance.
+ManageIQ uses {postgres} Database as persistency layer. In order to manage the data (e.g. backup) {postgres} commands
+need to be used for this purpose.
 
-*Note: We will backup manageIQ ``vmdb_development'' database*
+NOTE: In this document manageIQ's ``vmdb_development'' database instance will be used.
 
----
-
-*This is list of steps followed to obtain a dump from a db then restore it*
-
-==== Dump the Postgres DB:
+==== Backup the {postgres} DB:
 
 [arabic]
 . Stop the appliance(s):
-
-    `systemctl stop evmserverd`
-
- - *This will stop the evmserverd.service from using database in background
-but no need to stop them, for creating backup it does not affect
-anything*
++
+[source,bash]
+----
+systemctl stop evmserverd
+----
++
+This will stop the `evmserverd.service` from using database in background but no need to stop them, for creating backup it does not affect
+anything
 
 . Dump the database into file:
-
-    `pg_dump -Fc vmdb_development > development.dump`
-
-_If you get output similar to this_
-
++
+[source,bash]
+----
+pg_dump -Fc vmdb_development > development.dump
+----
++
+If the output is similar to this:
++
 [source,bash]
 ----
 pg_dump: [archiver (db)] connection to database "vmdb_development" failed: connection to server on socket "/var/run/postgresql/.s.PGSQL.5432" failed: FATAL: role "<your_username>" does not exist
 ----
++
+add `-U root` to every {postgres} command (in {postgres} installation for {product-title} you define `root` as the
+user of {product-title} databases).
 
-_you can add `-U root` to every postgresql command (in postgresql
-installation for ManageIQ you define root as the user of ManageIQ
-databases)._
-
-==== Import the Postgresql dump
+==== Import the {postgres} dump
 
 [arabic]
-. Take `development.dump` to machine where you want database to be
-restored.
+. Take `development.dump` to the machine where the database needs to be restored.
 . Stop the backend processes
-
-    `systemctl stop evmserverd`
++
+[source,bash]
+----
+systemctl stop evmserverd
+----
 
 . Drop existing database `vmdb_development`
-
-    `dropdb vmdb_development`
++
+[source,bash]
+----
+dropdb vmdb_development
+----
 
 . Create new database named `vmdb_development`
++
+[source,bash]
+----
+createdb vmdb_development
+----
 
-    `createdb vmdb_development`
-
-. restore the database from dump file
-
-    `pg_restore -d vmdb_development "path/to/development.dump"`
+. Restore the database from dump file
++
+[source,bash]
+----
+pg_restore -d vmdb_development "path/to/development.dump"
+----
 
 . Run `fix_auth.rb`
++
+[source,bash]
+----
+bundle exec tools/fix_auth.rb --v2 vmdb_development
+----
 
-    `bundle exec tools/fix_auth.rb --v2 vmdb_development`
-
-. Start evm service
-
-    `systemctl start evmserverd`
-
-_This will do the task of restoring database automatically_
+. Start `evm` service
++
+[source,bash]
+----
+systemctl start evmserverd
+----
+This will do the task of restoring database automatically.

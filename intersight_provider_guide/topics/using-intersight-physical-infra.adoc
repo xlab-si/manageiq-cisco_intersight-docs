@@ -1,6 +1,6 @@
 == Using {intersight-provider-full-title}
 
-=== Updating {intersight-provider-title} credentials￼
+=== Updating {intersight-provider-title} credentials
 
 This process follows similar flow as adding a provider. After creating a provider, you can navigate to the list of all
 available physical providers and *Edit Selected Physical Infrastructure Providers* where the user can update

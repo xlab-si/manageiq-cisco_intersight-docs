@@ -39,6 +39,8 @@
 :intersight-provider-full-title: {intersight-provider-title} for {product-title}
 :intersight-sdk-library:       {intersight} SDK library
 
+:postgres:                    PostgresSQL
+
 = {intersight-provider-full} User Guide
 
 [[OverviewIntersight]]
