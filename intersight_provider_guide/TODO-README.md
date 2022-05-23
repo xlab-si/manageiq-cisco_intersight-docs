@@ -22,16 +22,6 @@ Documentation for the `manageiq-providers-cisco_intersight` provider.
  
 ### (Not supported) As a user I need to be able to boot a specific bootable image for the server from the portal
  
-### As an admin I need to be able to review detailed EMS logs
-
-[comment]: <We wanred to include more details [here](admin-review-ems-README.md). Not sure whether this is even needed.> 
-
-`Control -> Log` opens Last 1000 lines from server EVM in zone `default`. User with role `EvmGroup-super_administrator` can also download entire Policy Log File.
-
-Moreover with the same user role and by navigating to `Settings -> Application Settings -> Digagnostics`, Diagnostic server EVM allows review of Workers, Collect Logs, ManageIQ Logs, Audit Log and Development Log.
-
-![Diagnostics Server](../figures/admin_review_ems_logs_1.png)
-
 ### (Not supported) As a user I need to be able to open a remote console to the server through MIQ portal leveraging tunneled KVM of intersight
  
 ### As a user I need to be able to get alerts and notifications from the Intersight system

@@ -52,3 +52,16 @@ and Power States*, wait a few seconds, then refresh the page in the browser.
 
 Please refer to the <<ReleaseNotesIntersight>> section for further information
 about the power management actions and statuses.
+
+=== Reviewing Alerts and Notifications from the {intersight} system
+
+To view a list of the alerts and notifications obtained through the {intersight}'s API, first navigate to the
+specific provider. By clicking on *Monitoring -> Timelines* it will take you to a view of *Timelines for Physical
+Infrastructure Provider*. Under *Options* you should specify options as given in the figure below and  should provide
+a time period you are interested in.
+
+image::docs_intersight_using05_alarms_notifications.png[alt="Alarms and events",600,align="center"]
+
+Currently, there are two groups of events supported by the {intersight} provider: *Updates* (notifications) and
+*General Activity* (alarms). By clicking on a specific element in the timeline under section *Data* more details are
+given for the specific element (alert, notification).
