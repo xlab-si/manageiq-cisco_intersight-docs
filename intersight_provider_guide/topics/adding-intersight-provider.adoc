@@ -25,3 +25,9 @@ the list of *Physical Infrastructure* providers and by clicking on *Remove Physi
 Inventory*.
 
 image::docs_intersight_remove_physical_provider.png[alt="Remove Physical Infrastructure Providers",500,align="center"]
+
+=== Updating {intersight-provider-title} credentials
+
+This process follows similar flow as adding a provider. After creating a provider, you can navigate to the list of all
+available physical providers and *Edit Selected Physical Infrastructure Providers* where the user can update
+*Name*, *Zone*, and *Authentication credentials* details.

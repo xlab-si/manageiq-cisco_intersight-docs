@@ -1,11 +1,5 @@
 == Using {intersight-provider-full-title}
 
-=== Updating {intersight-provider-title} credentials
-
-This process follows similar flow as adding a provider. After creating a provider, you can navigate to the list of all
-available physical providers and *Edit Selected Physical Infrastructure Providers* where the user can update
-*Name*, *Zone*, and *Authentication credentials* details.
-
 === Examining {intersight-provider-title} Inventory
 
 The physical infrastructure provider's dashboard provides an overview of the
@@ -31,12 +25,24 @@ On the main dashboard of {intersight-provider} we can examine lists of:
 image::docs_intersight_using02_dashboard01.png[alt="{intersight-provider} dashboard",600,align="center"]
 
 To view a list of the resources discovered through the inventory, click on
-the respective row of the *Relationships* table. For example, clicking on
-the *Physical Servers* row will take you to the list of physical servers:
+the respective row of the *Relationships* table.
+
+To view a list of Chassis provided by the {intersight} system, navigate to the list of *Chassis* on the
+main menu of the {intersight-provider}. On the detailed view of Chassis we can examine:
+
+* Properties (Chassis name, Product Name, Serial Number, Health state,...)
+* Relationships (list of servers and storages associated with the chassis)
+* Management Networks
+* More details about the Chassis Slot
+
+image::docs_intersight_using02_chassis.png[alt="{intersight-provider} Chassis view",600,align="center"]
+
+By clicking on the *Physical Servers* on the {intersight-provider} dashboard row will take you to the list of
+physical servers:
 
 image::docs_intersight_using02_dashboard.png[alt="{intersight-provider} dashboard",600,align="center"]
 
-By clicking on *Servers* section user is presented with the list of all servers in the {intersight-provider.
+By clicking on *Servers* section user is presented with the list of all servers in the {intersight-provider}.
 By clicking on a specific server, view with detailed information of the server is shown. Set of different information
 can be examined:
 
