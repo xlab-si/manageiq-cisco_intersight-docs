@@ -12,6 +12,20 @@ server EVM allows review of Workers, Collect Logs, ManageIQ Logs, Audit Log and 
 
 image::docs_intersight_admin_review_ems_logs_1.png[alt="{intersight-provider} EVM logs overview",600,align="center"]
 
+=== Specifying appropriate RBAC rules for the Client to access the environment
+
+As a user with an operator role we need to be able to specify appropriate RBAC rules for the Client to access the
+environment. For this purpose we have developed a script to help the operator to create users, roles, groups and
+associate specific permissions (features) to these roles.
+
+The script is available https://github.com/xlab-si/manageiq-cisco_intersight-roles-create[here].
+
+This script creates `intersight_user` and related objects: `EvmRole-intersight_user`, `EvmGroup-intersight_user`,
+`EvmUser-intersight_user`. It also creates `intersight_admin` user with corresponding objects: `EvmRole-intersight_admin`
+, `EvmGroup-intersight_admin`, `EvmUser-intersight_admin`. The script can easily be adapted for necessary changes (e.g.
+change of the default password, different names of users, roles or groups, different set of features assigned to
+the users. 
+
 === Backup and restore of the {postgres} database
 
 ManageIQ uses {postgres} Database as persistency layer. In order to manage the data (e.g. backup) {postgres} commands
