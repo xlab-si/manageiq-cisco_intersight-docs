@@ -24,7 +24,7 @@ This script creates `intersight_user` and related objects: `EvmRole-intersight_u
 `EvmUser-intersight_user`. It also creates `intersight_admin` user with corresponding objects: `EvmRole-intersight_admin`
 , `EvmGroup-intersight_admin`, `EvmUser-intersight_admin`. The script can easily be adapted for necessary changes (e.g.
 change of the default password, different names of users, roles or groups, different set of features assigned to
-the users. 
+the users.
 
 === Backup and restore of the {postgres} database
 
