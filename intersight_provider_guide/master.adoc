@@ -31,7 +31,9 @@
 :product-appliance:           {product-title_short} appliance
 :product-appliance_title:     {product-title_short} Appliance
 :product-console:             {product-appliance} console
-:intersight:                  Cisco Intersight
+:cisco:                       Cisco
+:cisco-ucs:                   Cisco UCS
+:intersight:                  {cisco} Intersight
 :intersight-server:           {intersight} server
 :intersight-provider:         {intersight} physical infrastructure provider
 :intersight-provider-title:   {intersight} Physical Infrastructure Provider

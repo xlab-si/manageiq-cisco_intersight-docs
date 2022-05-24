@@ -20,11 +20,51 @@ inventory. To make sure that the latest information is visible, please perform
 *Configuration -> Refresh Relationships and Power States*. The statuses should
 be up-to-date after a few seconds.
 
+On the main dashboard of {intersight-provider} we can examine lists of:
+
+* Chassis
+* Servers
+* Switches
+
+*Racks* and *Storages* are currently not supported by the {intersight-provider}.
+
+image::docs_intersight_using02_dashboard01.png[alt="{intersight-provider} dashboard",600,align="center"]
+
 To view a list of the resources discovered through the inventory, click on
 the respective row of the *Relationships* table. For example, clicking on
 the *Physical Servers* row will take you to the list of physical servers:
 
 image::docs_intersight_using02_dashboard.png[alt="{intersight-provider} dashboard",600,align="center"]
+
+By clicking on *Servers* section user is presented with the list of all servers in the {intersight-provider.
+By clicking on a specific server, view with detailed information of the server is shown. Set of different information
+can be examined:
+
+* Properties (Server name, Model, Product Name, Total memory, CPU total cores, Network Devices,...)
+* Management Networks (list of networks associated with the server)
+* Relationships (details on the host, link to the Physical Infrastructure Provider)
+* Power Management (Power State and health)
+* Firmwares
+* Asset Details (Description, Location)
+* Server Profiles (Assigned and Associated server profiles)
+
+image::docs_intersight_using02_physical_servers_details.png[alt="{intersight-provider} dashboard",600,align="center"]
+
+To view a list of Fabric Interconnects provided by the {intersight} system, navigate to the list of *Switches* on the
+main menu of the {intersight-provider}.
+
+image::docs_intersight_using02_fis.png[alt="{intersight-provider} dashboard - switches",600,align="center"]
+
+By clicking on an item on the list of all physical switches (Fabric Interconnects) user is navigated to the details view
+of the specific network device. Associated networking data can be inspected through this view:
+
+* Number of ports
+* Health status
+* Description
+* Associated physical servers
+* Details of the management networks
+
+image::docs_intersight_using02_fis01.png[alt="Fabric Interconnect's details",600,align="center"]
 
 === Managing the Physical System's Power Status
 
@@ -65,3 +105,115 @@ image::docs_intersight_using05_alarms_notifications.png[alt="Alarms and events",
 Currently, there are two groups of events supported by the {intersight} provider: *Updates* (notifications) and
 *General Activity* (alarms). By clicking on a specific element in the timeline under section *Data* more details are
 given for the specific element (alert, notification).
+
+=== Decommission a server
+
+User can decommission a server with an action from the *Lifecycle* menu on the provider. Selected server can be decommissioned as
+depicted in the figure below.
+
+image::docs_intersight_using06_decommission.png[alt="Decommission a server",600,align="center"]
+
+=== Recommission a server
+
+User can commission a server with an action from the *Lifecycle* menu on the provider. This way selected servers that
+ have been already decommissioned can be commissioned and therefore made available to a user for further use.
+
+image::docs_intersight_using07_recommission.png[alt="Recommission a server",600,align="center"]
+
+NOTE: As soon as the server is recommissioned it takes some time for {intersight} to aggregates all the data from the
+server (discovery process needs to finish).
+
+=== Assigning a Server Profile
+
+User can assign a server profile with an action from the *Intersight* menu in the server's details view in the provider.
+
+image::docs_intersight_using08_01_sp_list.png[alt="List of servers",600,align="center"]
+
+By clicking on *Intersight -> Assign Server Profile* user is presented with a list of available server profiles.
+
+image::docs_intersight_using08_02_sp_assign.png[alt="Assigning a server profile to a server",600,align="center"]
+
+Modal window has a drop-down menu that allows user to specify a server profile to be used for the assignment.
+
+image::docs_intersight_using08_03_sp_assign_modal.png[alt="Assigning a server profile to a server",600,align="center"]
+
+After selecting the profile and clicking *Assign* assignment process is triggered on the {intersight}.
+
+NOTE: This process can take couple of minutes due to the process on the {intersight}. Moreover, the {intersight-provider}
+does not support targeted refreshing of the inventory. To make sure that the latest information is visible, please
+perform *Configuration -> Refresh Relationships and Power States*. The statuses should be up-to-date after a few seconds.
+
+After the assignment process is triggered, notification is displayed.
+
+image::docs_intersight_using08_04_sp_assign_notification.png[alt="Assigning a server profile to a server",600,align="center"]
+
+As soon as the assignment process on the {intersight} is finished and the provider refreshes the inventory, the new
+state is reflected on the list of servers on the {intersight-provider} under *Assigned Profile* column.
+
+image::docs_intersight_using08_09a_sp_list_updated.png[alt="Status updates of servers",600,align="center"]
+
+As soon as the assignment process on the {intersight} is finished and the provider refreshes the inventory, the new
+state is reflected under *Server Profile* view on the server details view of the {intersight-provider}.
+
+image::docs_intersight_using08_05_sp_assign_statusupdated.png[alt="Assigning a server profile to a server",600,align="center"]
+
+Please refer to the <<ReleaseNotesIntersight>> section for further information
+about the server profiles actions and statuses.
+
+=== Deployment of a Server Profile
+
+User can trigger deployment of a server profile on a server which is already assigned with a server profile.
+Deployment process can be done on the server details view of the {intersight-provider}.
+
+image::docs_intersight_using08_06_sp_deploy_menu.png[alt="Deployment of a server profile",600,align="center"]
+
+Just after the deployment process is triggered, notification is displayed.
+
+image::docs_intersight_using08_08_sp_deploy_notification.png[alt="Deployment of a server profile",600,align="center"]
+
+As soon as the deployment process on the {intersight} is finished and the provider refreshes the inventory, the new
+state is reflected on the list of servers on the {intersight-provider} under *Associated Profile* column. This indicated
+that the server profile has been assigned and deployed.
+
+NOTE: This process can take couple of minutes due to the process on the {intersight}. Moreover, the {intersight-provider}
+does not support targeted refreshing of the inventory. To make sure that the latest information is visible, please
+perform *Configuration -> Refresh Relationships and Power States*. The statuses should be up-to-date after a few seconds.
+
+image::docs_intersight_using08_09b_sp_list_updated.png[alt="Status updates of servers",600,align="center"]
+
+As soon as the deployment process on the {intersight} is finished and the provider refreshes the inventory, the new
+state is reflected under *Server Profile* view on the server details view of the {intersight-provider}.
+
+image::docs_intersight_using08_10_sp_details.png[alt="Details of servers",600,align="center"]
+
+Please refer to the <<ReleaseNotesIntersight>> section for further information
+about the server profiles actions and statuses.
+
+=== Unassigning a Server Profile
+
+User can trigger unassignment of a server profile on a server which has been already deployed using a server profile.
+Unassigning process can be done on the server details view of the {intersight-provider} by clicking on a menu
+*Intersight -> Unassign Server Profile*.
+
+image::docs_intersight_using08_11_sp_unassign.png[alt="Unassign of a server profile",600,align="center"]
+
+Modal window with a server list is displayed with default selection of a server on which user wants to trigger the
+unassignment process. The process is triggered by clicking on *Unassign*  button on the model window.
+
+image::docs_intersight_using08_12_sp_unassign.png[alt="Unassign of a server profile",600,align="center"]
+
+Just after the unassignment process is triggered, notification is displayed.
+
+image::docs_intersight_using08_13_sp_notification.png[alt="Unassign of a server profile",600,align="center"]
+
+As soon as the unassignment process on the {intersight} is finished and the provider refreshes the inventory, the new
+state is reflected under *Server Profile* view on the server details view of the {intersight-provider}.
+
+NOTE: This process can take couple of minutes due to the process on the {intersight}. Moreover, the {intersight-provider}
+does not support targeted refreshing of the inventory. To make sure that the latest information is visible, please
+perform *Configuration -> Refresh Relationships and Power States*. The statuses should be up-to-date after a few seconds.
+
+image::docs_intersight_using08_14_sp_list.png[alt="List and statuses of servers after server profile unassignment",600,align="center"]
+
+Please refer to the <<ReleaseNotesIntersight>> section for further information
+about the server profiles actions and statuses.

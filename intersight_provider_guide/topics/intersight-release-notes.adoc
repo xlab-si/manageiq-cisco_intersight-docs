@@ -1,5 +1,17 @@
 == {intersight-provider-title} Release Notes
 
+The goal of {intersight-provider-title} for {product-title} is to enable transparent management of Cisco-based
+infrastructure through the {intersight} management layer. High level diagram of the provider (and most common use
+ of the provider) is depicted in the diagram below:
+
+image::docs_intersight_release_notes01_arch.png[alt="{intersight-provider} architecture",600,align="center"]
+
+{product-title} web service and {product-title} API are part of the {product-title} core system.
+{intersight-provider-title} is integrated as the {product-title} provider using {intersight-provider-title} SDK library for the
+interaction with the {intersight-provider-title} system.
+For the communication it uses API keys with HTTP signature API authorization scheme provided by
+{intersight-provider-title}.
+
 The {product-title} uses {intersight-sdk-library} written in Ruby. The official Github repository of the library
 resides here: https://github.com/xlab-si/intersight-sdk-ruby .
 
@@ -50,7 +62,30 @@ it receives the request.
 | Restart Immediately                | Powering Off, Off, Powering On, On
 |===============================================================================
 
-=== Events
+=== Alarms and Events
 {product-title} supports {intersight} events and alarms. On the {intersight} these are known as Requests and Alarms.
 Requests are triggered by end-users and the {intersight} system itself, and Alarms triggered by {intersight} components
 (e.g. "ethernet port down" warnings).
+
+=== Server profiles
+
+From {intersight}
+https://www.cisco.com/c/en/us/td/docs/unified_computing/Intersight/b_Intersight_Managed_Mode_Configuration_Guide.html[official documentation]:
+"`In Intersight, a Server Profile enables resource management by
+streamlining policy alignment, and server configuration. A server profile defines a server and its compute, storage,
+ management, and network characteristics. When a server profile is deployed to a server, Intersight automatically
+ configures the server and its connections to match the configuration specified in the server profile.`"
+
+Collection of server profiles is obtained from the {intersight}. The system allows associating available server
+ profiles to servers, and triggering deployment action of the server profile assigned to the server.
+
+=== Decommissioning servers
+
+From {intersight}
+https://www.cisco.com/c/en/us/td/docs/unified_computing/Intersight/b_Intersight_Managed_Mode_Configuration_Guide.html[official documentation]:
+"`Decommission action decommissions the server and removes the server from the Cisco UCS configuration.
+However, the server hardware physically remains in the Cisco UCS instance.`"
+
+Recommission and decommission process of the servers ensures that the servers are not used in the quota of the user.
+The provider collects a list of servers from a set of decommissioned servers that are available to the user in order
+to expose them for a recommission process.

@@ -3,3 +3,4 @@
 *.lock
 *.pdf
 master-local.adoc
+.idea
